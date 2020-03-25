@@ -6,7 +6,7 @@ using namespace std;
 void easy()
 {
 	int count = 0;
-    char arr[3][4] = { '2','@','4','f','@','&','*','@','@','!','u','@' };
+	char arr[3][4];
 
 	cout << endl;
 	cout << "Уровень 1. Необходимо посчитать количество символов @ в массиве. Массив символов:" << endl << endl;
@@ -15,7 +15,8 @@ void easy()
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			cout << arr[i][j] << "\t";
+			arr[i][j] = char(rand()%10 + 55);
+			cout << arr[i][j] << " ";
 			if (arr[i][j] == '@')
 			{
 				count++;
@@ -34,16 +35,16 @@ void medium()
 	cout << "Уровень 2. Необходимо вывести слова в обратном порядке" << endl;
 	cout << "Даны слова: ";
 
-	char const* arr[] = {"hello", "world", "word3"};
+	char const* arr[] = {"hello", "world", "word3", "word4"};
 
-	int const size = 3;
+    int const size = 4;
+
+	char const* temp[size];
 
 	for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << ' ';
 	}
-
-	char const* temp[size];
 
 	cout << endl;
 
@@ -62,7 +63,6 @@ void medium()
 	}
 
 	cout << endl << endl;
-
 }
 
 void hard()
@@ -84,6 +84,7 @@ void hard()
 
 int main()
 {
+	srand(time(NULL));
 	setlocale(LC_ALL, "RU");
 	
 	int a;
@@ -115,7 +116,4 @@ int main()
 		}
 
 	} while (count == 0);
-
-
-	
 }
