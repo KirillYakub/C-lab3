@@ -65,18 +65,13 @@ void medium()
 	cout << endl << endl;
 }
 
-struct COUNT
-{
-	int count = 0;
-};
-
 void hard()
 {
 	cout << endl;
 
 	const int size = 50;
 	char arr[size];
-	COUNT arr1[size];
+	int count = 0;
 
 	cout << "Уровень 3. Необходимо создать массив не более чем из 100 символов и посчитать в нем количество каждой русской буквы" << endl;
 	cout << "Создаем массив из 50 случайныx символов в пределах размещения русских букв по таблице ASCII" << endl << endl;
@@ -88,50 +83,22 @@ void hard()
 		cout << arr[i] << ' ';
 	}
 
-	cout << endl;
-
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size; j++)
-		{
-			for (int a = 192; a <= 255; a++)
-			{
-				if (char(arr[i]) == char(a) && char(arr[i]) == char(arr[j]))
-				{
-					arr1[i].count++;
-				}
-			}
-		}
-	}
-
-	for (int a = 192; a <= 255; a++)
-	{
-		for (int i = 0; i < size; i++)
-		{
-			for (int j = 0; j < size - 1; j++)
-			{
-				if (arr[j] > arr[j + 1] && char(arr[j] == char(a) && char(arr[j + 1]) == char(a)))
-				{
-					char temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
-			}
-		}
-	}
-
-	cout << endl;
+	cout << endl << endl;
 	cout << "Русские элементы массива и их количество: " << endl << endl;
 
 	for (int a = 192; a <= 255; a++)
 	{
+		count = 0;
+
 		for (int i = 0; i < size; i++)
 		{
-			if (char(arr[i]) == char(a))
+			if (char(a) == arr[i])
 			{
-				cout << arr[i] << " - " << arr1[i].count << endl;
+				count++;
 			}
 		}
+
+		cout << char(a) << " - " << count << " раз(а)" << endl;
 	}
 
 	cout << endl << endl;
